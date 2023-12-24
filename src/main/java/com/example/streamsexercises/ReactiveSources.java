@@ -33,15 +33,17 @@ public class ReactiveSources {
                 .delayElement(Duration.ofSeconds(1));
     }
 
+    public static Mono<User> userMono() {
+        return Mono.just(
+                new User(1, "Lionel", "Messi")
+        ).delayElement(Duration.ofSeconds(1));
+    }
+
     public static Flux<User> userFlux() {
         return Flux.just(
                 new User(1, "Lionel", "Messi"),
-                new User(2, "Lionel2", "Messi2"),
-                new User(2, "Lionel22", "Messi22"),
-                new User(3, "Lionel3", "Messi3"),
-                new User(4, "Lionel4", "Messi4"),
-                new User(5, "Lionel5", "Messi5"),
-                new User(6, "Lionel6", "Messi6")
+                new User(1, "Lionel", "Messi"),
+                new User(1, "Lionel", "Messi")
         ).delayElements(Duration.ofSeconds(1));
     }
 }
